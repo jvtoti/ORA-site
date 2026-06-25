@@ -377,7 +377,7 @@ function homePage() {
       <div class="home-media" aria-hidden="true">
         <img src="assets/generated/hero-governance.png" alt="">
         <div class="home-overlay"></div>
-        <div class="home-mark"></div>
+        <img src="assets/logo-clean.png" class="home-mark-symbol" alt="" aria-hidden="true">
       </div>
       <div class="container home-content">
         <h1>Governança<br><span>e valor estratégico</span></h1>
