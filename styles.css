@@ -798,16 +798,14 @@ p {
 }
 
 .brazil-map-card {
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line-dark);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brazil-map-card img {
   width: 100%;
+  max-width: 480px;
   height: auto;
   object-fit: contain;
   display: block;
