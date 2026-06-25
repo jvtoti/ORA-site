@@ -2035,12 +2035,12 @@ p {
   }
 
   .section {
-    padding: 56px 0;
+    padding: 40px 0;
   }
 
   .tech-power-box {
     width: 100%;
-    padding: 60px 18px 60px;
+    padding: 40px 18px;
   }
 
   .tech-pill-row {
@@ -2050,7 +2050,7 @@ p {
 
   .brand-proof-box {
     width: 100%;
-    padding: 60px 18px;
+    padding: 40px 18px;
   }
 
   .brand-carousel::before,
@@ -2069,7 +2069,7 @@ p {
 
   .product-tabs-box {
     width: 100%;
-    padding: 60px 18px 72px;
+    padding: 40px 18px 48px;
   }
 
   .product-tab-controls {
@@ -2127,7 +2127,7 @@ p {
 
   .testimonials-box {
     width: 100%;
-    padding: 60px 18px 72px;
+    padding: 40px 18px 48px;
   }
 
   .testimonial-grid article {
