@@ -19,14 +19,14 @@ const blogPosts = [
     category: "Gestão Financeira",
     date: "18 Jun 2026",
     image: "assets/generated/solution-cfo.png",
-    title: "Como estruturar um fluxo de caixa confiável para PMEs",
+    title: "Como estruturar um fluxo de caixa confiável para sua empresa",
     excerpt: "O fluxo de caixa é a espinha dorsal da saúde financeira de qualquer empresa. Veja como estruturá-lo com rigor, previsibilidade e rastreabilidade para tomar decisões com confiança.",
     body: [
-      "O fluxo de caixa não é apenas um relatório financeiro — é o termômetro diário da saúde da sua empresa. Muitas PMEs operam com visibilidade limitada sobre entradas e saídas futuras, o que torna qualquer decisão de investimento ou expansão uma aposta desnecessária.",
+      "O fluxo de caixa não é apenas um relatório financeiro — é o termômetro diário da saúde da sua empresa. Muitas empresas operam com visibilidade limitada sobre entradas e saídas futuras, o que torna qualquer decisão de investimento ou expansão uma aposta desnecessária.",
       "O primeiro passo para estruturar um fluxo de caixa confiável é separar claramente o caixa operacional do caixa financeiro e do caixa de investimentos. Essa segregação permite entender de onde vem o dinheiro e para onde ele vai, sem confundir resultado com geração de caixa.",
       "Em seguida, é fundamental trabalhar com um rolling forecast — uma projeção móvel de 13 semanas, atualizada semanalmente. Essa prática permite antecipar gargalos de liquidez com tempo suficiente para agir: negociar prazos com fornecedores, acelerar recebíveis ou acionar uma linha de crédito de forma planejada, não emergencial.",
       "Outro ponto crítico é a conciliação bancária diária e o controle rigoroso do ciclo de conversão de caixa — o prazo médio entre o desembolso com fornecedores e o recebimento de clientes. Empresas que dominam esse indicador conseguem crescer com menos capital de giro e menor dependência de crédito caro.",
-      "A ORA Advisory apoia PMEs na implantação de rotinas financeiras estruturadas, desde o modelo de fluxo de caixa até a governança de aprovação de pagamentos e gestão ativa de liquidez. O resultado é uma operação financeira que sustenta o crescimento em vez de freiá-lo.",
+      "A ORA Advisory apoia empresas na implantação de rotinas financeiras estruturadas, desde o modelo de fluxo de caixa até a governança de aprovação de pagamentos e gestão ativa de liquidez. O resultado é uma operação financeira que sustenta o crescimento em vez de freiá-lo.",
     ],
   },
   {
@@ -35,9 +35,9 @@ const blogPosts = [
     date: "10 Jun 2026",
     image: "assets/generated/hero-governance.png",
     title: "CFO as a Service: quando contratar e o que esperar",
-    excerpt: "Empresas de médio porte já não precisam esperar crescer para ter gestão financeira de nível C-Level. Entenda como funciona, quando faz sentido e quais resultados esperar.",
+    excerpt: "Empresas já não precisam esperar crescer para ter gestão financeira de nível C-Level. Entenda como funciona, quando faz sentido e quais resultados esperar.",
     body: [
-      "Durante muito tempo, ter um CFO — Chief Financial Officer — era privilégio de grandes corporações. O custo de um executivo sênior em tempo integral, somado aos encargos e benefícios, tornava essa estrutura inacessível para a maioria das PMEs. O modelo CFO as a Service mudou essa equação.",
+      "Durante muito tempo, ter um CFO — Chief Financial Officer — era privilégio de grandes corporações. O custo de um executivo sênior em tempo integral, somado aos encargos e benefícios, tornava essa estrutura inacessível para a maioria das empresas. O modelo CFO as a Service mudou essa equação.",
       "No formato sob demanda, a empresa acessa expertise de nível C-Level de forma fracionada: o profissional atua com dedicação parcial, mas com a mesma profundidade técnica e visão estratégica de um executivo em tempo integral. O custo é uma fração do equivalente CLT, com flexibilidade de escopo e duração.",
       "Quando faz sentido contratar? O gatilho mais comum é a percepção de que o financeiro deixou de ser fonte de informação confiável para virar um gargalo operacional. Outros sinais: dificuldade em captar crédito, ausência de DRE gerencial, caixa volátil sem explicação clara, ou um processo de valuation e captação que a empresa não consegue conduzir internamente.",
       "O que esperar nos primeiros 90 dias: diagnóstico completo do estado financeiro, identificação dos principais riscos e oportunidades, estruturação do modelo de reporte executivo e priorização das iniciativas de maior impacto. A partir daí, o trabalho evolui para execução — não apenas recomendação.",
@@ -53,7 +53,7 @@ const blogPosts = [
     excerpt: "As mudanças no sistema tributário brasileiro exigem atenção imediata. Entenda os impactos práticos sobre regime de apuração, créditos e obrigações acessórias.",
     body: [
       "A reforma tributária brasileira representa a maior mudança no sistema de impostos do país em décadas. Para as empresas, o período de transição exige atenção redobrada: as regras antigas e as novas coexistem, e erros de interpretação podem gerar passivos significativos.",
-      "Um dos impactos mais relevantes para PMEs é a unificação de tributos sobre consumo no IBS e na CBS, substituindo progressivamente PIS, COFINS, IPI, ICMS e ISS. A lógica de não cumulatividade muda, e com ela a forma de apurar e aproveitar créditos tributários.",
+      "Um dos impactos mais relevantes para as empresas é a unificação de tributos sobre consumo no IBS e na CBS, substituindo progressivamente PIS, COFINS, IPI, ICMS e ISS. A lógica de não cumulatividade muda, e com ela a forma de apurar e aproveitar créditos tributários.",
       "Empresas que operam no Simples Nacional precisam avaliar se a permanência no regime ainda é vantajosa, considerando as novas alíquotas e a possibilidade de aproveitamento de créditos no sistema amplo. Em muitos casos, a migração para Lucro Presumido ou Lucro Real pode gerar economia relevante.",
       "Além das mudanças estruturais, as obrigações acessórias também evoluem. O SPED fiscal, a EFD-Contribuições e os demais arquivos digitais passarão por adaptações. Empresas com parametrização incorreta no ERP correm risco de inconsistências que geram autuações automáticas.",
       "A ORA Advisory realiza diagnósticos tributários completos, identificando oportunidades de recuperação de créditos e adequando a estrutura fiscal da empresa ao novo cenário regulatório. A atuação preventiva hoje evita contingências custosas amanhã.",
@@ -69,7 +69,7 @@ const blogPosts = [
     body: [
       "A escolha de um ERP é uma das decisões mais impactantes que uma empresa pode tomar. Um sistema bem escolhido e bem implantado aumenta a eficiência, melhora a visibilidade financeira e sustenta o crescimento. Um sistema mal escolhido — ou bem escolhido, mas mal implantado — paralisa a operação e gera custos que se arrastam por anos.",
       "O primeiro erro no processo de seleção é começar pelos fornecedores em vez de começar pelos requisitos. Antes de avaliar qualquer solução, é preciso mapear os processos atuais, identificar os gaps críticos e definir quais módulos são essenciais versus desejáveis. Esse trabalho de RFP (Request for Proposal) estruturado é o que diferencia uma escolha técnica de uma escolha comercial.",
-      "Para PMEs, o mercado oferece opções em diferentes faixas de maturidade e custo. Soluções como Omie e Bling atendem bem operações mais simples, com baixo custo de implantação. TOTVS Protheus e SAP Business One são adequados para empresas com operações mais complexas, especialmente em indústria e distribuição. SAP S/4HANA e Oracle Fusion ficam reservados para grandes corporações.",
+      "Para empresas em crescimento, o mercado oferece opções em diferentes faixas de maturidade e custo. Soluções como Omie e Bling atendem bem operações mais simples, com baixo custo de implantação. TOTVS Protheus e SAP Business One são adequados para empresas com operações mais complexas, especialmente em indústria e distribuição. SAP S/4HANA e Oracle Fusion ficam reservados para grandes corporações.",
       "Além da escolha do sistema, o sucesso da implantação depende de três fatores: um PMO dedicado que controle cronograma e riscos, parametrização correta dos módulos financeiros e fiscais desde o início, e um plano de treinamento que garanta adoção real pelos usuários-chave.",
       "A ORA Advisory conduz processos completos de seleção e implantação de ERP, desde o mapeamento de requisitos até o go-live e suporte pós-implantação. Nossa atuação é independente de fornecedores — o que garante que a recomendação seja baseada nas necessidades reais da empresa.",
     ],
@@ -106,7 +106,7 @@ const blogPosts = [
   },
 ];
 
-const oraAcademyHotmartUrl = "https://hotmart.com/pt-br";
+const oraAcademyHotmartUrl = "https://pay.hotmart.com/U106162371C?checkoutMode=6";
 
 const solutions = [
   {
@@ -291,7 +291,7 @@ function footer() {
       <div class="container footer-grid">
         <div>
           <img class="footer-logo" src="assets/logo-white.png" alt="ORA Advisory">
-          <p>Governança financeira, tecnologia e valor estratégico para pequenas e médias empresas.</p>
+          <p>Governança financeira, tecnologia e valor estratégico para empresas.</p>
         </div>
         <nav class="footer-links" aria-label="Links do rodapé">
           <a href="${routes["quem-somos"]}">Quem Somos</a>
@@ -301,8 +301,8 @@ function footer() {
           <a href="${routes.contato}">Contato</a>
         </nav>
         <div class="footer-contact">
-          <a href="mailto:carlos@oraadvisory.com.br">carlos@oraadvisory.com.br</a>
-          <a href="https://wa.me/5519991974286" target="_blank" rel="noreferrer">(19) 99197-4286</a>
+          <a href="mailto:ora@oraadvisory.com.br">ora@oraadvisory.com.br</a>
+          <a href="https://wa.me/5519999642620" target="_blank" rel="noreferrer">(19) 99964-2620</a>
           <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">@ora_advisory</a>
         </div>
       </div>
@@ -380,7 +380,7 @@ function homePage() {
       </div>
       <div class="container home-content">
         <h1>Governança<br><span>e valor estratégico</span></h1>
-        <p>Democratizamos a gestão financeira de alto nível, dando a pequenas e médias empresas condições para crescer com controle, autonomia e decisões baseadas em dados.</p>
+        <p>Democratizamos a gestão financeira de alto nível, dando às empresas condições para crescer com controle, autonomia e decisões baseadas em dados.</p>
         <div class="hero-actions">
           <a class="button primary" href="${routes.solucoes}">Conheça as soluções</a>
           <a class="button ghost" href="${routes.contato}">Vamos conversar</a>
@@ -503,7 +503,7 @@ function homePage() {
     <section class="section client-pains-section">
       <div class="container client-pains-box">
         <div class="pain-intro">
-          <h2>7 em cada 10 PMEs tomam decisões financeiras sem dados confiáveis</h2>
+          <h2>7 em cada 10 empresas tomam decisões financeiras sem dados confiáveis</h2>
         </div>
         <div class="pain-grid" aria-label="Dores dos clientes">
           <article><span aria-hidden="true"></span><p>Erro de parametrização no ERP</p></article>
@@ -644,7 +644,7 @@ function aboutPage() {
     ${pageHero({
       section: "",
       title: "Propósito, Missão e Visão",
-      lead: "A ORA nasce para elevar o padrão de gestão das PMEs, unindo consultoria financeira C-Level e ferramentas aplicadas à rotina do negócio.",
+      lead: "A ORA nasce para elevar o padrão de gestão das empresas, unindo consultoria financeira C-Level e ferramentas aplicadas à rotina do negócio.",
       image: "assets/generated/hero-governance.png",
       compact: true,
     })}
@@ -653,7 +653,7 @@ function aboutPage() {
         <article>
           <span>Propósito</span>
           <h2>Democratizar a gestão financeira de alto nível.</h2>
-          <p>Dar a pequenas e médias empresas as condições para crescer com controle, autonomia e decisões baseadas em dados.</p>
+          <p>Dar às empresas as condições para crescer com controle, autonomia e decisões baseadas em dados.</p>
         </article>
         <article>
           <span>Missão</span>
@@ -662,7 +662,7 @@ function aboutPage() {
         </article>
         <article>
           <span>Visão</span>
-          <h2>10.000 PMEs até 2030.</h2>
+          <h2>10.000 empresas até 2030.</h2>
           <p>Levar gestão financeira estruturada para empresas que precisam decidir melhor e crescer com controle.</p>
         </article>
       </div>
@@ -822,8 +822,8 @@ function contatoPage() {
         <div>
           ${sectionHead("", "Fale com um especialista.", "Use os canais diretos ou preencha o formulário para abrir uma conversa no WhatsApp com a mensagem pronta.")}
           <div class="contact-lines">
-            <a href="mailto:carlos@oraadvisory.com.br">carlos@oraadvisory.com.br</a>
-            <a href="https://wa.me/5519991974286" target="_blank" rel="noreferrer">(19) 99197-4286</a>
+            <a href="mailto:ora@oraadvisory.com.br">ora@oraadvisory.com.br</a>
+            <a href="https://wa.me/5519999642620" target="_blank" rel="noreferrer">(19) 99964-2620</a>
             <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">@ora_advisory</a>
           </div>
         </div>
@@ -832,10 +832,13 @@ function contatoPage() {
           <label>Empresa<input name="empresa" type="text" autocomplete="organization" required></label>
           <label>E-mail<input name="email" type="email" autocomplete="email" required></label>
           <label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" required></label>
-          <label>Solução de interesse
-            <select name="solucao">
-              <option value="Diagnóstico institucional">Diagnóstico institucional</option>
-              ${solutions.map((item) => `<option value="${item.title}">${item.title}</option>`).join("")}
+          <label>Faixa de faturamento mensal
+            <select name="faturamento">
+              <option value="">Selecione</option>
+              <option>Até R$ 500 mil</option>
+              <option>R$ 500 mil a R$ 1 milhão</option>
+              <option>R$ 1 milhão a R$ 5 milhões</option>
+              <option>Acima de R$ 5 milhões</option>
             </select>
           </label>
           <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
@@ -852,7 +855,7 @@ function blogPage() {
     ${pageHero({
       section: "",
       title: "Insights sobre gestão financeira e governança.",
-      lead: "Artigos, análises e perspectivas da equipe ORA Advisory sobre finanças corporativas, tecnologia e estratégia para PMEs.",
+      lead: "Artigos, análises e perspectivas da equipe ORA Advisory sobre finanças corporativas, tecnologia e estratégia empresarial.",
       image: "assets/generated/hero-governance.png",
       compact: true,
     })}
@@ -967,12 +970,12 @@ function setupContactForm() {
       `Empresa: ${data.get("empresa") || ""}`,
       `E-mail: ${data.get("email") || ""}`,
       `WhatsApp: ${data.get("whatsapp") || ""}`,
-      `Solução de interesse: ${data.get("solucao") || ""}`,
+      `Faturamento mensal: ${data.get("faturamento") || ""}`,
       "",
       `Mensagem: ${data.get("mensagem") || ""}`,
     ];
     const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5519991974286?text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
   });
 }
 
@@ -995,7 +998,7 @@ function setupHomeLeadForm() {
       `Faixa de faturamento mensal: ${data.get("faturamento") || ""}`,
     ];
     const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5519991974286?text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
   });
 }
 
