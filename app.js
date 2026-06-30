@@ -106,7 +106,7 @@ const blogPosts = [
   },
 ];
 
-const oraAcademyHotmartUrl = "https://pay.hotmart.com/U106162371C?checkoutMode=6";
+const oraAcademyUrl = "https://ebook.oraadvisory.com.br/";
 
 const solutions = [
   {
@@ -254,6 +254,7 @@ function header(active) {
     ["Soluções", routes.solucoes],
     ...solutions.map((item) => [`- ${item.title}`, item.href]),
     ["Blog", routes.blog],
+    ["ORA Academy", oraAcademyUrl],
     ["Contato", routes.contato],
   ]
     .map(([label, href]) => `<a href="${href}">${label}</a>`)
@@ -275,6 +276,7 @@ function header(active) {
             </div>
           </div>
           <a class="nav-link ${active === "blog" ? "is-active" : ""}" href="${routes.blog}">Blog</a>
+          <a class="nav-link" href="${oraAcademyUrl}" target="_blank" rel="noreferrer">ORA Academy</a>
           <a class="nav-link ${active === "contato" ? "is-active" : ""}" href="${routes.contato}">Contato</a>
         </nav>
         <a class="nav-cta" href="${routes.contato}">Vamos conversar</a>
@@ -442,7 +444,7 @@ function homePage() {
             <span>ORA Academy</span>
             <h3>Formação prática para empresários e profissionais financeiros.</h3>
             <p>Conteúdos e treinamentos para quem quer dominar gestão financeira estratégica, indicadores, governança e rotina de decisão.</p>
-            <a class="button primary" href="${oraAcademyHotmartUrl}" target="_blank" rel="noreferrer">Acessar Hotmart</a>
+            <a class="button primary" href="${oraAcademyUrl}" target="_blank" rel="noreferrer">Conhecer o ORA Academy</a>
           </div>
           <div class="product-visual academy-visual" aria-hidden="true">
             <div class="mock-window">
