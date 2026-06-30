@@ -1875,38 +1875,37 @@ p {
   color: var(--white);
 }
 
-.form-social-bar {
-  margin-top: 32px;
-  padding-top: 24px;
+.modal-social {
+  margin-top: 24px;
+  padding-top: 20px;
   border-top: 1px solid var(--line);
-  text-align: center;
 }
 
-.form-social-bar p {
-  font-size: 0.88rem;
+.modal-social p {
+  font-size: 0.84rem;
   color: var(--gray);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-.form-social-links {
+.modal-social-links {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.form-social-links a {
+.modal-social-links a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   color: var(--navy);
   font-weight: 800;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-decoration: none;
   transition: color 180ms ease;
 }
 
-.form-social-links a:hover {
+.modal-social-links a:hover {
   color: var(--teal);
 }
 
