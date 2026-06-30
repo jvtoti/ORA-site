@@ -967,7 +967,7 @@ async function sendToEmail(fields, subject) {
     Mensagem: lines,
   };
   try {
-    const res = await fetch("https://formsubmit.co/ajax/jvtoti99@gmail.com", {
+    const res = await fetch("https://formsubmit.co/ajax/ora@oraadvisory.com.br", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),
