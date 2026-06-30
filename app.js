@@ -636,6 +636,19 @@ function homePage() {
         </form>
       </div>
     </section>
+    <div class="form-social-bar">
+      <p>Siga a ORA Advisory nas redes</p>
+      <div class="form-social-links">
+        <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @ora_advisory
+        </a>
+        <a href="https://www.linkedin.com/company/ora-dvisory/" target="_blank" rel="noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          ORA Advisory
+        </a>
+      </div>
+    </div>
   `;
 }
 
@@ -843,8 +856,20 @@ function contatoPage() {
           </label>
           <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
           <button class="button primary" type="submit">Enviar</button>
-          <p>Ao enviar, uma conversa no WhatsApp será aberta com a mensagem preenchida.</p>
         </form>
+        <div class="form-social-bar">
+          <p>Siga a ORA Advisory nas redes</p>
+          <div class="form-social-links">
+            <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              @ora_advisory
+            </a>
+            <a href="https://www.linkedin.com/company/ora-dvisory/" target="_blank" rel="noreferrer">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              ORA Advisory
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -957,14 +982,16 @@ function setupHeader() {
   });
 }
 
-async function sendToEmail(formData, subject) {
-  const payload = {};
-  for (const [key, value] of formData.entries()) {
-    payload[key] = value;
-  }
-  payload._subject = subject;
-  payload._captcha = "false";
-  payload._template = "table";
+async function sendToEmail(fields, subject) {
+  const lines = Object.entries(fields)
+    .map(([k, v]) => `${k}: ${v}`)
+    .join("\n");
+  const payload = {
+    _subject: subject,
+    _captcha: "false",
+    _template: "basic",
+    Mensagem: lines,
+  };
   try {
     const res = await fetch("https://formsubmit.co/ajax/jvtoti99@gmail.com", {
       method: "POST",
@@ -1003,8 +1030,15 @@ function setupContactForm() {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const data = new FormData(form);
-    await sendToEmail(data, "Novo contato pelo site ORA Advisory");
+    const d = new FormData(form);
+    await sendToEmail({
+      "Nome": d.get("nome") || "",
+      "Empresa": d.get("empresa") || "",
+      "E-mail": d.get("email") || "",
+      "WhatsApp": d.get("whatsapp") || "",
+      "Faturamento mensal": d.get("faturamento") || "",
+      "Mensagem": d.get("mensagem") || "",
+    }, "Novo contato pelo site ORA Advisory");
     form.reset();
     showSuccessModal();
   });
@@ -1016,8 +1050,17 @@ function setupHomeLeadForm() {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const data = new FormData(form);
-    await sendToEmail(data, "Novo lead pelo site ORA Advisory");
+    const d = new FormData(form);
+    await sendToEmail({
+      "Nome": d.get("nome") || "",
+      "WhatsApp": d.get("whatsapp") || "",
+      "E-mail": d.get("email") || "",
+      "Empresa": d.get("empresa") || "",
+      "Cargo": d.get("cargo") || "",
+      "Setor": d.get("setor") || "",
+      "ERP utilizado": d.get("erp") || "",
+      "Faturamento mensal": d.get("faturamento") || "",
+    }, "Novo lead pelo site ORA Advisory");
     form.reset();
     showSuccessModal();
   });
