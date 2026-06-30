@@ -957,11 +957,25 @@ function setupHeader() {
   });
 }
 
+async function sendToEmail(formData, subject) {
+  const payload = {};
+  for (const [key, value] of formData.entries()) {
+    payload[key] = value;
+  }
+  payload._subject = subject;
+  payload._captcha = "false";
+  await fetch("https://formsubmit.co/ajax/jvtoti99@gmail.com", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
+
 function setupContactForm() {
   const form = document.querySelector("#contact-form");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     const lines = [
@@ -974,6 +988,7 @@ function setupContactForm() {
       "",
       `Mensagem: ${data.get("mensagem") || ""}`,
     ];
+    sendToEmail(data, "Novo contato pelo site ORA Advisory");
     const message = encodeURIComponent(lines.join("\n"));
     window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
   });
@@ -983,7 +998,7 @@ function setupHomeLeadForm() {
   const form = document.querySelector("#home-lead-form");
   if (!form) return;
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     const lines = [
@@ -997,6 +1012,7 @@ function setupHomeLeadForm() {
       `ERP: ${data.get("erp") || ""}`,
       `Faixa de faturamento mensal: ${data.get("faturamento") || ""}`,
     ];
+    sendToEmail(data, "Novo lead pelo site ORA Advisory");
     const message = encodeURIComponent(lines.join("\n"));
     window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
   });
