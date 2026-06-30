@@ -842,7 +842,7 @@ function contatoPage() {
             </select>
           </label>
           <label>Mensagem<textarea name="mensagem" rows="5" required></textarea></label>
-          <button class="button primary" type="submit">Enviar pelo WhatsApp</button>
+          <button class="button primary" type="submit">Enviar</button>
           <p>Ao enviar, uma conversa no WhatsApp será aberta com a mensagem preenchida.</p>
         </form>
       </div>
@@ -964,11 +964,17 @@ async function sendToEmail(formData, subject) {
   }
   payload._subject = subject;
   payload._captcha = "false";
-  await fetch("https://formsubmit.co/ajax/jvtoti99@gmail.com", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(payload),
-  });
+  payload._template = "table";
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/jvtoti99@gmail.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
+    });
+    return await res.json();
+  } catch (e) {
+    console.error("Erro ao enviar formulário:", e);
+  }
 }
 
 function showSuccessModal() {
@@ -998,7 +1004,7 @@ function setupContactForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    sendToEmail(data, "Novo contato pelo site ORA Advisory");
+    await sendToEmail(data, "Novo contato pelo site ORA Advisory");
     form.reset();
     showSuccessModal();
   });
@@ -1011,7 +1017,7 @@ function setupHomeLeadForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    sendToEmail(data, "Novo lead pelo site ORA Advisory");
+    await sendToEmail(data, "Novo lead pelo site ORA Advisory");
     form.reset();
     showSuccessModal();
   });
