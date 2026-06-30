@@ -971,6 +971,26 @@ async function sendToEmail(formData, subject) {
   });
 }
 
+function showSuccessModal() {
+  const modal = document.querySelector("#success-modal");
+  if (!modal) return;
+  modal.hidden = false;
+  document.body.classList.add("modal-open");
+  modal.querySelector("#success-close").focus();
+}
+
+function setupSuccessModal() {
+  const modal = document.querySelector("#success-modal");
+  if (!modal) return;
+  const close = () => {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+  };
+  modal.querySelector("#success-close").addEventListener("click", close);
+  modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
+}
+
 function setupContactForm() {
   const form = document.querySelector("#contact-form");
   if (!form) return;
@@ -978,19 +998,9 @@ function setupContactForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    const lines = [
-      "Olá, ORA Advisory. Gostaria de conversar sobre minha empresa.",
-      `Nome: ${data.get("nome") || ""}`,
-      `Empresa: ${data.get("empresa") || ""}`,
-      `E-mail: ${data.get("email") || ""}`,
-      `WhatsApp: ${data.get("whatsapp") || ""}`,
-      `Faturamento mensal: ${data.get("faturamento") || ""}`,
-      "",
-      `Mensagem: ${data.get("mensagem") || ""}`,
-    ];
     sendToEmail(data, "Novo contato pelo site ORA Advisory");
-    const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
+    form.reset();
+    showSuccessModal();
   });
 }
 
@@ -1001,20 +1011,9 @@ function setupHomeLeadForm() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    const lines = [
-      "Olá, ORA Advisory. Preenchi o formulário do site e gostaria de falar com um especialista.",
-      `Nome: ${data.get("nome") || ""}`,
-      `WhatsApp: ${data.get("whatsapp") || ""}`,
-      `E-mail: ${data.get("email") || ""}`,
-      `Empresa: ${data.get("empresa") || ""}`,
-      `Cargo: ${data.get("cargo") || ""}`,
-      `Setor: ${data.get("setor") || ""}`,
-      `ERP: ${data.get("erp") || ""}`,
-      `Faixa de faturamento mensal: ${data.get("faturamento") || ""}`,
-    ];
     sendToEmail(data, "Novo lead pelo site ORA Advisory");
-    const message = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5519999642620?text=${message}`, "_blank", "noopener,noreferrer");
+    form.reset();
+    showSuccessModal();
   });
 }
 
@@ -1046,8 +1045,17 @@ function render() {
   const page = root.dataset.page || "home";
   const renderer = renderers[page] || renderers.home;
   document.title = pageTitles[page] || pageTitles.home;
-  root.innerHTML = `<div class="site-shell">${header(page)}<main>${renderer()}</main>${footer()}</div>`;
+  root.innerHTML = `<div class="site-shell">${header(page)}<main>${renderer()}</main>${footer()}</div>
+    <div class="success-modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
+      <div class="success-modal-box">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <h2 id="success-title">Mensagem enviada!</h2>
+        <p>Em breve entraremos em contato com você.</p>
+        <button class="button primary" type="button" id="success-close">Fechar</button>
+      </div>
+    </div>`;
   setupHeader();
+  setupSuccessModal();
   setupContactForm();
   setupHomeLeadForm();
   setupProductTabs();
