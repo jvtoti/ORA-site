@@ -13,6 +13,8 @@ const routes = {
   contato: "contato.html",
 };
 
+const diagnosticUrl = "https://ora-fintech-v2-amber.vercel.app/diagnostico";
+
 const blogPosts = [
   {
     slug: "fluxo-de-caixa-pme",
@@ -255,6 +257,7 @@ function header(active) {
     ...solutions.map((item) => [`- ${item.title}`, item.href]),
     ["Blog", routes.blog],
     ["ORA Academy", oraAcademyUrl],
+    ...(active === "home" ? [["Iniciar Diagnóstico", diagnosticUrl]] : []),
     ["Contato", routes.contato],
   ]
     .map(([label, href]) => `<a href="${href}">${label}</a>`)
@@ -279,7 +282,14 @@ function header(active) {
           <a class="nav-link" href="${oraAcademyUrl}" target="_blank" rel="noreferrer">ORA Academy</a>
           <a class="nav-link ${active === "contato" ? "is-active" : ""}" href="${routes.contato}">Contato</a>
         </nav>
-        <a class="nav-cta" href="${routes.contato}">Vamos conversar</a>
+        ${
+          active === "home"
+            ? `<div class="home-diagnostic-cta" aria-label="Diagnóstico gratuito">
+                <span class="diagnostic-meta"><span aria-hidden="true"></span>Gratuito · 3 minutos</span>
+                <a class="diagnostic-button" href="${diagnosticUrl}">Iniciar Diagnóstico</a>
+              </div>`
+            : `<a class="nav-cta" href="${routes.contato}">Vamos conversar</a>`
+        }
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
       </div>
       <nav class="mobile-menu" aria-label="Menu mobile">${mobileLinks}</nav>

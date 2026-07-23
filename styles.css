@@ -181,6 +181,51 @@ textarea {
   background: var(--white);
 }
 
+.home-diagnostic-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+}
+
+.diagnostic-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--teal);
+  font-size: 0.85rem;
+  font-weight: 760;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.diagnostic-meta span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+
+.diagnostic-button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: #1d5bd8;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(29, 91, 216, 0.26);
+}
+
+.diagnostic-button:hover {
+  background: #2f6ff0;
+}
+
 .menu-toggle {
   width: 44px;
   height: 44px;
@@ -2005,7 +2050,8 @@ body.modal-open {
 
 @media (max-width: 1080px) {
   .desktop-nav,
-  .nav-cta {
+  .nav-cta,
+  .home-diagnostic-cta {
     display: none;
   }
 
