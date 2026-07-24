@@ -2050,14 +2050,30 @@ body.modal-open {
 
 @media (max-width: 1080px) {
   .desktop-nav,
-  .nav-cta,
-  .home-diagnostic-cta {
+  .nav-cta {
     display: none;
+  }
+
+  .home-diagnostic-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    margin-left: auto;
+  }
+
+  .diagnostic-meta {
+    display: none;
+  }
+
+  .diagnostic-button {
+    min-height: 38px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 0.72rem;
   }
 
   .menu-toggle {
     display: grid;
-    margin-left: auto;
   }
 
   .mobile-menu {
@@ -2125,8 +2141,12 @@ body.modal-open {
     width: min(100% - 28px, var(--max));
   }
 
+  .nav-wrap {
+    gap: 8px;
+  }
+
   .brand {
-    width: 142px;
+    width: 136px;
   }
 
   .home-hero {
@@ -2310,5 +2330,26 @@ body.modal-open {
     right: -260px;
     bottom: -180px;
     border-width: 54px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand {
+    width: 112px;
+  }
+
+  .nav-wrap {
+    gap: 6px;
+  }
+
+  .diagnostic-button {
+    min-height: 36px;
+    padding: 0 8px;
+    font-size: 0.65rem;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
   }
 }
