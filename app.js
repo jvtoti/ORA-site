@@ -483,6 +483,22 @@ function homePage() {
       </div>
     </section>
 
+    <section class="section founder-section">
+      <div class="container founder-grid">
+        <div class="founder-photo">
+          <img src="assets/carlos-fundador.jpeg" alt="Carlos, Fundador e CEO da ORA Advisory">
+        </div>
+        <div class="founder-copy">
+          <p class="founder-label">O Fundador</p>
+          <h2>Carlos</h2>
+          <p class="founder-role">FUNDADOR &amp; CEO ORA ADVISORY</p>
+          <p class="founder-lead">Executivo financeiro com mais de 25 anos de experiência em grandes empresas, nacionais e multinacionais.</p>
+          <p>Ao longo de sua carreira em gigantes globais, Carlos viu de dentro como essas corporações operam, como estruturam seu capital, como otimizam processos e como se preparam para fusões e aquisições. Ele aprendeu exatamente o que separa os líderes de mercado das empresas que ficam pelo caminho: governança financeira, processos robustos e visão estratégica de capital.</p>
+          <p>Após duas décadas e meia no topo do mundo corporativo, Carlos decidiu fazer uma transição de carreira impulsionado pelo propósito de transformar o cenário empresarial no Brasil. Ele percebeu que enquanto grandes corporações têm acesso a CFOs de elite e ferramentas sofisticadas, muitas empresas — com produtos incríveis e líderes apaixonados — lutam para sobreviver com planilhas básicas e contadores focados apenas em impostos.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section regions-section">
       <div class="container regions-grid">
         <div>
