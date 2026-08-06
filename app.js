@@ -261,7 +261,7 @@ function header(active) {
     ["ORA Academy", oraAcademyUrl],
     ...(active === "home" ? [["Iniciar Diagnóstico", diagnosticUrl]] : []),
     ["Contato", routes.contato],
-    ["Entrar", routes.login],
+    // ["Entrar", routes.login],
   ]
     .map(([label, href]) => `<a href="${href}">${label}</a>`)
     .join("");
@@ -288,12 +288,12 @@ function header(active) {
         ${
           active === "home"
             ? `<div class="home-diagnostic-cta" aria-label="Diagnóstico gratuito">
-                <a class="nav-login-link" href="${routes.login}">Entrar</a>
+                <!-- <a class="nav-login-link" href="${routes.login}">Entrar</a> -->
                 <span class="diagnostic-meta"><span aria-hidden="true"></span>Gratuito · 3 minutos</span>
                 <a class="diagnostic-button" href="${diagnosticUrl}">Iniciar Diagnóstico</a>
               </div>`
             : `<div class="home-diagnostic-cta">
-                <a class="nav-login-link" href="${routes.login}">Entrar</a>
+                <!-- <a class="nav-login-link" href="${routes.login}">Entrar</a> -->
                 <a class="nav-cta" href="${routes.contato}">Vamos conversar</a>
               </div>`
         }
