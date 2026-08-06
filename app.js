@@ -11,6 +11,7 @@ const routes = {
   blog: "blog.html",
   "blog-post": "blog-post.html",
   contato: "contato.html",
+  login: "login.html",
 };
 
 const diagnosticUrl = "https://ora-fintech-v2-amber.vercel.app/diagnostico";
@@ -210,6 +211,7 @@ const pageTitles = {
   blog: "Blog | ORA Advisory",
   "blog-post": "Artigo | ORA Advisory",
   contato: "Contato | ORA Advisory",
+  login: "Acesse sua conta | ORA Advisory",
 };
 
 const values = [
@@ -259,6 +261,7 @@ function header(active) {
     ["ORA Academy", oraAcademyUrl],
     ...(active === "home" ? [["Iniciar Diagnóstico", diagnosticUrl]] : []),
     ["Contato", routes.contato],
+    ["Entrar", routes.login],
   ]
     .map(([label, href]) => `<a href="${href}">${label}</a>`)
     .join("");
@@ -285,10 +288,14 @@ function header(active) {
         ${
           active === "home"
             ? `<div class="home-diagnostic-cta" aria-label="Diagnóstico gratuito">
+                <a class="nav-login-link" href="${routes.login}">Entrar</a>
                 <span class="diagnostic-meta"><span aria-hidden="true"></span>Gratuito · 3 minutos</span>
                 <a class="diagnostic-button" href="${diagnosticUrl}">Iniciar Diagnóstico</a>
               </div>`
-            : `<a class="nav-cta" href="${routes.contato}">Vamos conversar</a>`
+            : `<div class="home-diagnostic-cta">
+                <a class="nav-login-link" href="${routes.login}">Entrar</a>
+                <a class="nav-cta" href="${routes.contato}">Vamos conversar</a>
+              </div>`
         }
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
       </div>
@@ -951,6 +958,71 @@ function blogPostPage() {
   `;
 }
 
+function loginPage() {
+  return `
+    <div class="login-wrapper">
+      <div class="login-content">
+        <!-- Left Side: Branding and Messaging -->
+        <div class="login-brand-col">
+          <a class="login-logo-link" href="${routes.home}">
+            <img src="assets/logo-white.png" alt="ORA Advisory" class="login-logo-img">
+          </a>
+          <span class="login-sub-tag">PLATAFORMA EXECUTIVA</span>
+          
+          <h1 class="login-heading">
+            Gestão financeira <br><span class="login-teal-text">na palma da mão.</span>
+          </h1>
+          
+          <p class="login-paragraph">
+            Visibilidade total sobre o seu negócio, com inteligência financeira acessível para quem decide.
+          </p>
+        </div>
+
+        <!-- Right Side: Login Form Card -->
+        <div class="login-card-col">
+          <div class="login-card">
+            <h2 class="login-card-title">Acesse sua conta</h2>
+            <p class="login-card-subtitle">Insira seus dados para acessar a plataforma.</p>
+            
+            <form id="login-form" class="login-form">
+              <div class="login-field-group">
+                <label for="login-username" class="login-field-label">USUÁRIO</label>
+                <div class="login-input-wrapper">
+                  <svg class="login-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                  <input type="text" id="login-username" name="username" placeholder="" required class="login-input-field">
+                </div>
+              </div>
+
+              <div class="login-field-group">
+                <div class="login-label-row">
+                  <label for="login-password" class="login-field-label">SENHA</label>
+                  <a href="#" class="login-forgot-link">Esqueci minha senha</a>
+                </div>
+                <div class="login-input-wrapper">
+                  <svg class="login-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  <input type="password" id="login-password" name="password" placeholder="........" required class="login-input-field">
+                </div>
+              </div>
+
+              <button type="submit" class="login-submit-btn">Entrar</button>
+            </form>
+
+            <div class="login-card-footer">
+              O acesso é fornecido pela <strong>ORA Advisory</strong>.<br>Em caso de dúvida, fale com seu contato.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 const renderers = {
   home: homePage,
   "quem-somos": aboutPage,
@@ -964,6 +1036,7 @@ const renderers = {
   blog: blogPage,
   "blog-post": blogPostPage,
   contato: contatoPage,
+  login: loginPage,
 };
 
 function setupHeader() {
@@ -1092,39 +1165,127 @@ function setupProductTabs() {
   });
 }
 
+// Initialize or update default credentials in localStorage
+const defaultUsers = [
+  { username: "grupo.mancha", password: "teste@" }
+];
+if (!localStorage.getItem("ora_users") || !localStorage.getItem("ora_users").includes("grupo.mancha")) {
+  localStorage.setItem("ora_users", JSON.stringify(defaultUsers));
+}
+
+function setupLoginForm() {
+  const form = document.querySelector("#login-form");
+  if (!form) return;
+  
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const usernameInput = document.querySelector("#login-username").value.trim().toLowerCase();
+    const passwordInput = document.querySelector("#login-password").value;
+    const btn = form.querySelector(".login-submit-btn");
+    const originalText = btn.textContent;
+    
+    btn.textContent = "Verificando...";
+    btn.disabled = true;
+    
+    // Clear old errors
+    const oldError = form.querySelector(".login-error-message");
+    if (oldError) oldError.remove();
+    
+    setTimeout(() => {
+      let users = [];
+      try {
+        users = JSON.parse(localStorage.getItem("ora_users")) || [];
+      } catch (err) {
+        console.error(err);
+      }
+      
+      const user = users.find(u => u.username.toLowerCase() === usernameInput && u.password === passwordInput);
+      
+      if (user) {
+        btn.textContent = "Sucesso!";
+        btn.style.backgroundColor = "var(--teal)";
+        btn.style.boxShadow = "0 10px 26px rgba(0, 210, 174, 0.26)";
+        
+        setTimeout(() => {
+          window.location.href = "ORA%20-%20Painel%20Grupo%20Mancha%202026_19.html";
+        }, 800);
+      } else {
+        btn.textContent = "Acesso Negado";
+        btn.style.backgroundColor = "#ff4d4d";
+        btn.style.boxShadow = "0 10px 26px rgba(255, 77, 77, 0.26)";
+        
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "login-error-message";
+        errorDiv.textContent = "Usuário ou senha incorretos.";
+        errorDiv.style.color = "#ff4d4d";
+        errorDiv.style.fontSize = "0.85rem";
+        errorDiv.style.marginTop = "12px";
+        errorDiv.style.textAlign = "center";
+        
+        form.appendChild(errorDiv);
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = "";
+          btn.style.boxShadow = "";
+          btn.disabled = false;
+        }, 2500);
+      }
+    }, 1000);
+  });
+  
+  const forgotLink = document.querySelector(".login-forgot-link");
+  if (forgotLink) {
+    forgotLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      alert("Para recuperar seu acesso, utilize as credenciais padrão:\nUsuário: grupo.mancha\nSenha: teste@");
+    });
+  }
+}
+
 function render() {
   const root = document.querySelector("#site");
   if (!root) return;
   const page = root.dataset.page || "home";
   const renderer = renderers[page] || renderers.home;
   document.title = pageTitles[page] || pageTitles.home;
-  root.innerHTML = `<div class="site-shell">${header(page)}<main>${renderer()}</main>${footer()}</div>
-    <div class="success-modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
-      <div class="success-modal-box">
-        <div class="success-icon" aria-hidden="true">✓</div>
-        <h2 id="success-title">Mensagem enviada!</h2>
-        <p>Em breve entraremos em contato com você.</p>
-        <button class="button primary" type="button" id="success-close">Fechar</button>
-        <div class="modal-social">
-          <p>Siga a ORA Advisory nas redes</p>
-          <div class="modal-social-links">
-            <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-              @ora_advisory
-            </a>
-            <a href="https://www.linkedin.com/company/ora-dvisory/" target="_blank" rel="noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              ORA Advisory
-            </a>
+  
+  if (page === "login") {
+    root.innerHTML = `<div class="site-shell login-shell"><main>${renderer()}</main></div>`;
+  } else {
+    root.innerHTML = `<div class="site-shell">${header(page)}<main>${renderer()}</main>${footer()}</div>
+      <div class="success-modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
+        <div class="success-modal-box">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h2 id="success-title">Mensagem enviada!</h2>
+          <p>Em breve entraremos em contato com você.</p>
+          <button class="button primary" type="button" id="success-close">Fechar</button>
+          <div class="modal-social">
+            <p>Siga a ORA Advisory nas redes</p>
+            <div class="modal-social-links">
+              <a href="https://www.instagram.com/ora_advisory" target="_blank" rel="noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                @ora_advisory
+              </a>
+              <a href="https://www.linkedin.com/company/ora-dvisory/" target="_blank" rel="noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                ORA Advisory
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
+  }
+  
   setupHeader();
   setupSuccessModal();
   setupContactForm();
   setupHomeLeadForm();
   setupProductTabs();
+  
+  if (page === "login") {
+    setupLoginForm();
+  }
 }
 
 render();
